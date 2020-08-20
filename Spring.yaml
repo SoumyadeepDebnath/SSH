@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-1461679
+  labels:
+    app: spring-1461679
+spec:
+  replicas: 1
+  selector:
+       matchLabels:
+         app: spring-1461679
+  template:
+    metadata:
+      name: spring-1461679
+      labels:
+        app: spring-1461679
+    spec:
+      containers:
+      - name: spring-1461679
+        image: raghavgeek/testing:10
+        resources:
+          limits:
+            memory: 1Gi
+            cpu: "0.5"
+          requests:
+            memory: 256Mi
+            cpu: "0.25"
+  selector:
+    matchLabels:
+      app: spring-1461679
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-1461679
+spec:
+  selector:
+    app: spring-1461679
+  ports:
+    - port: 8080
+  type: LoadBalancer
