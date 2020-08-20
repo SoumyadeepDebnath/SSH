@@ -21,6 +21,15 @@ pipeline {
     }     
     }
         
+    stage('Sonar'){
+                steps
+                {
+        
+            sh "mvn sonar:sonar -Dsonar.projectKey=SpringPipeline -Dsonar.host.url=http://52.143.7.186/sonarqube-1336430 -Dsonar.login=23e2ff1beac97da72a5edff2c7e3a72e33578244"
+ 
+                }
+     }
+         
 stage('Building/Deploying our image') { 
        steps
        {
