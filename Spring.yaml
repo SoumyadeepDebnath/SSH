@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-1461679_ssh
+  name: spring-1461679-ssh
   labels:
-    app: spring-1461679_ssh
+    app: spring-1461679-ssh
 spec:
   replicas: 1
   selector:
        matchLabels:
-         app: spring-1461679_ssh
+         app: spring-1461679-ssh
   template:
     metadata:
-      name: spring-1461679_ssh
+      name: spring-1461679-ssh
       labels:
-        app: spring-1461679_ssh
+        app: spring-1461679-ssh
     spec:
       containers:
-      - name: spring-1461679_ssh
+      - name: spring-1461679-ssh
         image: sdebnath13/testing:latest
         resources:
           limits:
@@ -27,17 +27,17 @@ spec:
             cpu: "0.25"
   selector:
     matchLabels:
-      app: spring-1461679_ssh
+      app: spring-1461679-ssh
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-1461679_ssh
+  name: spring-1461679-ssh
 spec:
   selector:
-    app: spring-1461679_ssh
+    app: spring-1461679-ssh
   ports:
     - port: 8080
   type: LoadBalancer
